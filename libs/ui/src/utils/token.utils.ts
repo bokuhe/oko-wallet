@@ -7,6 +7,7 @@ import { Token } from '../interfaces/token.interface';
 import { getString } from '../utils/get-string.utils';
 
 import { loadEvmGasTokenBalance$, loadEvmTokenBalance$ } from './by-network-types/token.utils.evm';
+import { loadKlaytnGasTokenBalance$ } from './by-network-types/token.utils.klaytn';
 import { loadTezosGasTokenBalance$, loadTezosTokenBalance$ } from './by-network-types/token.utils.tezos';
 import { getNetworkType } from './network.util';
 
@@ -16,6 +17,9 @@ export const getGasTokenBalance$ = (network: NetworkInterface, account: AccountI
   switch (networkType) {
     case NetworkTypeEnum.Tezos:
       return loadTezosGasTokenBalance$(network, account);
+
+    case NetworkTypeEnum.Klaytn:
+      return loadKlaytnGasTokenBalance$(network, getString(account.networksKeys[network.networkType]?.publicKeyHash));
 
     default:
       return loadEvmGasTokenBalance$(network, getString(account.networksKeys[network.networkType]?.publicKeyHash));

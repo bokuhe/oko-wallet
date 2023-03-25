@@ -126,6 +126,11 @@ enum TezosChainId {
   Ghostnet = 'NetXnHfVqm9iesp'
 }
 
+enum KlaytnChainId {
+  Mainnet = '8217',
+  Testnet = '1001'
+}
+
 export const NETWORK_CHAIN_IDS_BY_NETWORK_TYPE: NetworkChainIdsByNetworkType = {
   [NetworkTypeEnum.Tezos]: [
     TezosChainId.Mainnet,
@@ -139,5 +144,6 @@ export const NETWORK_CHAIN_IDS_BY_NETWORK_TYPE: NetworkChainIdsByNetworkType = {
     'NetXbhmtAbMukLc',
     'NetXLH1uAxK7CCh'
   ],
+  [NetworkTypeEnum.Klaytn]: [KlaytnChainId.Mainnet, KlaytnChainId.Testnet],
   [NetworkTypeEnum.EVM]: []
 };

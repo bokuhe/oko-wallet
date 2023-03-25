@@ -9,6 +9,7 @@ export const getNetworkType = ({ chainId }: NetworkInterface): NetworkTypeEnum =
   for (const [networkType, chainIds] of Object.entries(NETWORK_CHAIN_IDS_BY_NETWORK_TYPE)) {
     if (chainIds.includes(chainId)) {
       networkTypeValue = networkType as NetworkTypeEnum;
+      break;
     }
   }
 
