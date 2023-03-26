@@ -15,6 +15,7 @@ import { Token } from '../../../../interfaces/token.interface';
 import { isEmptyArray } from '../../../../utils/array.utils';
 import { getTokenSlug } from '../../../../utils/token.utils';
 import { useGroupedCollectibles } from '../../../collectibles/hooks/use-grouped-collectibles.hook';
+import { AssetTypes } from '../../wallet.asset-types';
 
 import { styles } from './collectibles.styles';
 
@@ -35,7 +36,7 @@ export const CollectiblesWidget: FC<TestIDProps> = ({ testID }) => {
   const handleItemPress = (collectible: Token) => navigate(ScreensEnum.Collectible, { collectible });
 
   return (
-    <WidgetContainer title={COLLECTIBLES} iconName={IconNameEnum.Nft} testID={testID}>
+    <WidgetContainer title={COLLECTIBLES} iconName={IconNameEnum.Nft} testID={testID} type={AssetTypes.Nft}>
       {isEmptyArray(collectionList) ? (
         <Row>
           <ButtonWithIcon

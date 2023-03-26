@@ -13,7 +13,7 @@ import { styles } from './widget-container.styles';
 
 type Props = PropsWithChildren<{
   iconName: IconNameEnum;
-  title: string;
+  title?: string;
   style?: ViewStyleProps;
 }> &
   TestIDProps;
@@ -22,7 +22,7 @@ export const WidgetContainer: FC<Props> = ({ children, style, iconName, title, t
   <View style={[styles.root, style]} testID={testID}>
     <Row style={styles.header}>
       <Icon name={iconName} color={colors.border1} />
-      <Text style={styles.text}>{title}</Text>
+      <Text style={styles.text}>{title ?? ''}</Text>
     </Row>
     <View style={styles.children}>{children}</View>
   </View>

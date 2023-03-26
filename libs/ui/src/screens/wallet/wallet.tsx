@@ -12,6 +12,7 @@ import { Header } from './components/header/header';
 import { QrCode } from './components/qr-code/qr-code';
 import { useAllUserNft } from './hooks/use-all-user-nft.hook';
 import { useHeaderAnimation } from './hooks/use-header-animation.hook';
+import { AssetTypes } from './wallet.asset-types';
 import { styles } from './wallet.styles';
 import { WalletTestIDs } from './wallet.test-ids';
 
@@ -37,8 +38,9 @@ export const Wallet: FC = () => {
         <QrCode contentOffsetY={contentOffsetY} />
 
         <View style={styles.content}>
-          <AssetsWidget testID={WalletTestIDs.AssetsWidget} />
-          <CollectiblesWidget testID={WalletTestIDs.CollectiblesWidget} />
+          <AssetsWidget testID={WalletTestIDs.CoinsWidget} type={AssetTypes.Coin} title={'Coins'} />
+          <AssetsWidget testID={WalletTestIDs.AssetsWidget} type={AssetTypes.Token} title={'Tokens'} />
+          <CollectiblesWidget testID={WalletTestIDs.CollectiblesWidget} type={AssetTypes.Nft} />
         </View>
       </ScrollView>
 

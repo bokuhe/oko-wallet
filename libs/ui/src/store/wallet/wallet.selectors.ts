@@ -178,6 +178,12 @@ export const useAccountTokensSelector = (): Token[] => {
   );
 };
 
+export const useVisibleAccountGasTokensSelector = () => {
+  const gasToken = useGasTokenSelector();
+
+  return useMemo(() => [gasToken], [gasToken]);
+};
+
 export const useVisibleAccountTokensSelector = () => {
   const accountTokens = useAccountTokensSelector();
 
